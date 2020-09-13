@@ -87,6 +87,8 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " Splits and tabs
 nnoremap <leader>s :split<CR>
 nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>ta :tabnew<CR>
+" Create a small terminal below the current window
+nnoremap <leader>te :split<CR>:terminal<CR>:resize 10<CR>
 " search files with <C-f>
 nnoremap <C-f> :Files<CR>
