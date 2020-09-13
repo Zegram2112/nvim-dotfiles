@@ -28,6 +28,8 @@ Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 " Fancy start screen
 Plug 'mhinz/vim-startify'
+" Git gutter
+Plug 'airblade/vim-gitgutter'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
