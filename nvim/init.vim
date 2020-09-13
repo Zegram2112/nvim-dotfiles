@@ -6,8 +6,12 @@
 "   * pynvim
 "   * jedi
 " - Fzf
+"
+" SYSTEM DEPENDENCIES
+" Linux
+" - xclip (For clipboard to work)
 " 
-" (A NERD compatible font is needed for icons to work)
+" A NERD compatible font is needed for icons to work
 "
 " = Vim-plug plugins =
 call plug#begin(stdpath('data').'/plugged')
