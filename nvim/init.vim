@@ -67,7 +67,7 @@ let g:user_emmet_settings = {
 let g:user_emmet_leader_key='<C-Z>'
 
 " = General configs =
-" just in case
+set updatetime=100
 set encoding=UTF-8
 " set more natural split opening
 set splitbelow
