@@ -35,6 +35,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'drewtempelmeyer/palenight.vim'
+" Airline bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " NERDTree icons
 Plug 'ryanoasis/vim-devicons'
 " NERDTree icons highlight
@@ -43,8 +46,13 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 " = Visual configs =
+" colorscheme onehalfdark
+" colorscheme onehalflight
+" colorscheme palenight
 colorscheme nord
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " = Plugin configs =
 " Emmet
