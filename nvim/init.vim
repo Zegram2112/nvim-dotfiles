@@ -76,6 +76,7 @@ set splitbelow
 set splitright
 
 " = Shortcuts =
+let mapleader=","
 " Easy navigation through shortcuts
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
