@@ -93,3 +93,9 @@ nnoremap <leader>ta :tabnew<CR>
 nnoremap <leader>te :split<CR>:terminal<CR>:resize 10<CR>
 " search files with <C-f>
 nnoremap <C-f> :Files<CR>
+
+" = Import local vim file =
+let localvim=stdpath('config')."/init.local.vim"
+if filereadable(localvim)
+  exec "source" localvim
+endif
