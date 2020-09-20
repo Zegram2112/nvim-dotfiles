@@ -37,6 +37,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dracula/vim'
+" Colorize color codes
+Plug 'etdev/vim-hexcolor'
 " Airline bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -45,13 +48,15 @@ Plug 'ryanoasis/vim-devicons'
 " NERDTree icons highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+
 call plug#end()
 
 " = Visual configs =
 " colorscheme onehalfdark
 " colorscheme onehalflight
 " colorscheme palenight
-colorscheme nord
+" colorscheme nord
+colorscheme dracula
 if (has("termguicolors"))
   set termguicolors
 endif
