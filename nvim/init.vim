@@ -10,7 +10,7 @@
 " SYSTEM DEPENDENCIES
 " Linux
 " - xclip (For clipboard to work)
-" 
+"
 " A NERD compatible font is needed for icons to work
 "
 " = Vim-plug plugins =
@@ -19,9 +19,16 @@ call plug#begin(stdpath('data').'/plugged')
 " Sensible conventions
 Plug 'jeffkreeftmeijer/neovim-sensible'
 " Vscode-like intellisense
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" NERDTree file exploration
-Plug 'scrooloose/nerdTree'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+Plug 'neovim/nvim-lspconfig'
+" CHADTree file exploration
+if executable('python3')
+   Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+else
+   Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python -m chadtree deps'}
+endif
 " Emmet for vim
 Plug 'mattn/emmet-vim'
 " Multiple language support
@@ -72,6 +79,7 @@ let g:user_emmet_settings = {
 \  },
 \}
 let g:user_emmet_leader_key='<C-Z>'
+" CHADTree
 
 " = General configs =
 set updatetime=100
@@ -79,6 +87,16 @@ set encoding=UTF-8
 " set more natural split opening
 set splitbelow
 set splitright
+" shell 
+if has ('win32')
+  let &shell = 'powershell'
+  let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
+  let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+  set shellquote= shellxquote=
+endif
+
+
 
 " = Shortcuts =
 let mapleader=","
@@ -89,7 +107,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Map <Esc> to exit terminal-mode
 tnoremap <Esc> <C-\><C-n>
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-b> <cmd>CHADopen<CR>
+nnoremap <leader>l <cmd>call setqflist([])<CR>
 " Splits and tabs
 nnoremap <leader>s :split<CR>
 nnoremap <leader>v :vsplit<CR>
