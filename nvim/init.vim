@@ -13,6 +13,12 @@
 "
 " A NERD compatible font is needed for icons to work
 "
+" INSTRUCTIONS
+" 1. :PlugInstall
+" 2. :CHADdeps
+" 3. :COQdeps
+" 4. install desired language servers
+"
 
 " = Auto Install =
 " Vim-plug
@@ -88,7 +94,34 @@ let g:user_emmet_settings = {
 \  },
 \}
 let g:user_emmet_leader_key='<C-Z>'
-" CHADTree
+
+" LSP and COQ Config
+lua << EOF
+local lsp = require('lspconfig')
+local coq = require('coq')
+
+-- npm install -g pyright
+lsp.pyright.setup{}
+
+-- npm install -g vim-language-server
+lsp.vimls.setup{}
+
+-- npm install -g typescript typescript-language-server
+lsp.tsserver.setup{
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+}
+
+-- npm install -g svelte-language-server
+lsp.svelte.setup{}
+
+-- npm install -g @tailwindcss/language-server
+lsp.tailwindcss.setup{}
+
+-- windows: choco install haskell-language-server
+-- macos:   brew install haskell-language-server
+-- arch:    sudo pacman -S haskell-language-server
+lsp.hls.setup{}
+EOF
 
 " = General configs =
 set updatetime=100
@@ -104,8 +137,6 @@ if has ('win32')
   let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
   set shellquote= shellxquote=
 endif
-
-
 
 " = Shortcuts =
 let mapleader=","
