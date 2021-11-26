@@ -69,6 +69,17 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 " NERDTree icons highlight
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Clojure
+Plug 'Olical/conjure'
+" Conjure support - jack-in with nrepl dependencies
+Plug 'tpope/vim-dispatch'
+Plug 'clojure-vim/vim-jack-in'
+Plug 'radenling/vim-dispatch-neovim'
+" Structural editing for lisp languages
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Auto-close parens
+Plug 'jiangmiao/auto-pairs'
 
 
 call plug#end()
@@ -121,6 +132,11 @@ lsp.tailwindcss.setup{}
 -- macos:   brew install haskell-language-server
 -- arch:    sudo pacman -S haskell-language-server
 lsp.hls.setup{}
+
+-- windows: scoop install clojure-lsp
+-- macos:   brew install clojure-lsp/brew/clojure-lsp-native
+-- arch:    yay -S clojure-lsp-bin
+lsp.clojure_lsp.setup{}
 EOF
 
 " = General configs =
@@ -140,6 +156,7 @@ endif
 
 " = Shortcuts =
 let mapleader=","
+let maplocalleader=","
 " Easy navigation through shortcuts
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
