@@ -17,6 +17,7 @@
 " 1. :PlugInstall
 " 2. :CHADdeps
 " 3. :COQdeps
+" 4. :call mkdp#util#install()
 " 4. install desired language servers
 "
 
@@ -80,6 +81,10 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " Auto-close parens
 Plug 'jiangmiao/auto-pairs'
+" To never forget keybinds
+Plug 'folke/which-key.nvim'
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 
 call plug#end()
