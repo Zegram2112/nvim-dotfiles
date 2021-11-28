@@ -81,6 +81,8 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " Auto-close parens
 Plug 'jiangmiao/auto-pairs'
+" Parenthesis inference
+Plug 'gpanders/nvim-parinfer'
 " To never forget keybinds
 Plug 'folke/which-key.nvim'
 " Markdown preview
@@ -144,6 +146,12 @@ lsp.hls.setup{}
 lsp.clojure_lsp.setup{}
 EOF
 
+" Auto-pairs config
+let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+
+" Par infer
+let g:parinfer_mode = "smart"
+
 " = General configs =
 set updatetime=100
 set encoding=UTF-8
@@ -174,7 +182,7 @@ nnoremap <leader>l <cmd>call setqflist([])<CR>
 " Splits and tabs
 nnoremap <leader>s :split<CR>
 nnoremap <leader>v :vsplit<CR>
-nnoremap <leader>ta :tabnew<CR>
+nnoremap <leader>tn :tabnew<CR>
 " Create a small terminal below the current window
 nnoremap <leader>te :split<CR>:terminal<CR>:resize 10<CR>
 " search files with <C-f>
