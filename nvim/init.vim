@@ -144,6 +144,15 @@ lsp.hls.setup{}
 -- macos:   brew install clojure-lsp/brew/clojure-lsp-native
 -- arch:    yay -S clojure-lsp-bin
 lsp.clojure_lsp.setup{}
+
+-- curl -fLO https://github.com/elixir-lsp/elixir-ls/releases/latest/download/elixir-ls.zip
+-- mkdir ~/.elixirls
+-- unzip elixir-ls.zip -d ~/.elixirls/elixir-ls
+-- # Unix
+-- chmod +x ~/.elixirls/elixir-ls/language_server.sh
+lsp.elixirls.setup{
+   cmd = {(vim.fn.has('win32') == 1) and "~/.elixirls/language_server.bat" or "/home/nicolas/.elixirls/language_server.sh"}
+}
 EOF
 
 " Auto-pairs config
